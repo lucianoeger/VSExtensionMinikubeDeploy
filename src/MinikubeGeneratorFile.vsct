@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <Extern href="stdidcmd.h"/>
+    <Extern href="vsshlids.h"/>
+
+    <Commands package="guidMinikubeGeneratorPkg">
+        <Buttons>
+            <Button guid="guidMinikubeGeneratorCmdSet" id="cmdidMyCommand" priority="0x2000" type="Button">
+                <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_ADD"/>
+                <CommandFlag>DynamicVisibility</CommandFlag>
+                <Strings>
+                    <CommandName>MinikubeDeploy</CommandName>
+                    <ButtonText>Minikube Deploy...</ButtonText>
+                </Strings>
+            </Button>
+        </Buttons>
+    </Commands>
+
+    <KeyBindings>
+        <KeyBinding guid="guidMinikubeGeneratorCmdSet" id="cmdidMyCommand" mod1="Shift" key1="VK_F2" editor="guidVSStd97"/>
+    </KeyBindings>
+
+    <Symbols>
+        <!-- This is the package guid. -->
+        <GuidSymbol name="guidMinikubeGeneratorPkg" value="{27dd9dea-6dd2-403e-929d-3ff20d896c5e}" />
+
+        <!-- This is the guid used to group the menu commands together -->
+        <GuidSymbol name="guidMinikubeGeneratorCmdSet" value="{32af8a17-bbbc-4c56-877e-fc6c6575a8cf}">
+            <IDSymbol name="cmdidMyCommand" value="0x0100" />
+        </GuidSymbol>
+    </Symbols>
+
+</CommandTable>

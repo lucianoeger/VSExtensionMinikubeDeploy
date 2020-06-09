@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: %nameImageDocker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: %nameImageDocker
+  template:
+    metadata:
+      labels:
+        app: %nameImageDocker
+    spec:
+      containers:
+      - name: %nameImageDocker
+        image: %nameImageDocker
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+        env:
+          - name: ASPNETCORE_ENVIRONMENT
+            value: Development

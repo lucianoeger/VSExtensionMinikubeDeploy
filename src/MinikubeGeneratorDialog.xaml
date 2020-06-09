@@ -1,0 +1,45 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="VSExtensions.MinikubeGenerator.MinikubeGeneratorDialog"
+        xmlns:vs_shell="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.14.0"    
+        Title="Minikube Configuration" Height="255.847" Width="609.08" ResizeMode="NoResize" ShowInTaskbar="False" 
+        Name="windowMinikubeGenerator"
+        WindowStartupLocation="CenterScreen" SizeToContent="Width">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static vs_shell:EnvironmentColors.ToolWindowTextBrushKey}}"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static vs_shell:EnvironmentColors.ToolWindowTextBrushKey}}"/>
+                <Setter Property="Background" Value="{DynamicResource {x:Static vs_shell:EnvironmentColors.ToolWindowBackgroundBrushKey}}"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static vs_shell:EnvironmentColors.ToolWindowTextBrushKey}}"/>
+                <Setter Property="Background" Value="{DynamicResource {x:Static vs_shell:EnvironmentColors.ToolWindowBackgroundBrushKey}}"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="84*" />
+            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="436*"/>
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" x:Name="lblNameDockerFile" Content="Name DockerFile" HorizontalAlignment="Left" Margin="45,36,0,137" VerticalAlignment="Center" Height="26" FontWeight="SemiBold" RenderTransformOrigin="0.571,-1.794" Grid.ColumnSpan="3" />
+        <TextBox Grid.Row="0" Grid.Column="3" x:Name="txtNameDockerFile" Text="DockerFile" VerticalContentAlignment="Center" Height="33" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Stretch" MinWidth="210" Margin="20,29,27,137" />
+        <Label Grid.Row="0" Grid.Column="0" x:Name="lblNameImageDocker" Content="Name Image Docker" HorizontalAlignment="Left" Margin="27,78,0,95" VerticalAlignment="Center" Height="26" FontWeight="SemiBold" RenderTransformOrigin="0.571,-1.794" Grid.ColumnSpan="3" />
+        <TextBox Grid.Row="0" Grid.Column="3" x:Name="txtNameImageDocker" VerticalContentAlignment="Center" Height="33" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Stretch" MinWidth="210" Margin="20,71,27,95" />
+        <Label Grid.Row="0" Grid.Column="0" x:Name="lblNamespaceKubernetes" Content="Namespace Kubernetes" HorizontalAlignment="Left" Margin="10,120,0,53" VerticalAlignment="Center" Height="26" FontWeight="SemiBold" RenderTransformOrigin="0.571,-1.794" Width="161" Grid.ColumnSpan="4" />
+        <TextBox Grid.Row="0" Grid.Column="3" x:Name="txtNamespaceKubernetes" VerticalContentAlignment="Center" Height="33" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Stretch" MinWidth="210" Margin="20,113,27,53" />
+        <Button Grid.Row="0" Grid.Column="3" Content="Deploy Minikube" HorizontalAlignment="Center" Margin="313,157,27,0" VerticalAlignment="Center" Width="96" Height="42" IsDefault="True" x:Name="btnCreate" Click="Button_Click" />
+    </Grid>
+</Window>
