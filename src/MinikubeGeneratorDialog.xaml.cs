@@ -8,7 +8,6 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
-using System.Windows.Media.Imaging;
 
 namespace VSExtensions.MinikubeGenerator
 {
@@ -22,7 +21,6 @@ namespace VSExtensions.MinikubeGenerator
 
             Loaded += (s, e) =>
             {
-                Icon = BitmapFrame.Create(new Uri("pack://application:,,,/MinikubeGenerator;component/Resources/icon.png", UriKind.RelativeOrAbsolute));
                 Title = Vsix.Name;
                 windowMinikubeGenerator.SetResourceReference(BackgroundProperty, SystemColors.WindowBrush);
                 windowMinikubeGenerator.SetResourceReference(ForegroundProperty, SystemColors.WindowTextBrush);
@@ -82,6 +80,7 @@ namespace VSExtensions.MinikubeGenerator
 
         private void WriteOutputWindow(string message)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
             IVsOutputWindow outWindow = Package.GetGlobalService(typeof(SVsOutputWindow)) as IVsOutputWindow;
 
             Guid debugPaneGuid = VSConstants.GUID_OutWindowDebugPane;

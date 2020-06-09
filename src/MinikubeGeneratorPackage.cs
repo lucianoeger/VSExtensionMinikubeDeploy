@@ -26,12 +26,12 @@ namespace VSExtensions.MinikubeGenerator
             if (await GetServiceAsync(typeof(IMenuCommandService)) is OleMenuCommandService mcs)
             {
                 var menuCommandID = new CommandID(PackageGuids.guidMinikubeGeneratorCmdSet, PackageIds.cmdidMyCommand);
-                var menuItem = new OleMenuCommand(ExecuteAsync, menuCommandID);
+                var menuItem = new OleMenuCommand(Execute, menuCommandID);
                 mcs.AddCommand(menuItem);
             }
         }
 
-        private async void ExecuteAsync(object sender, EventArgs e)
+        private void Execute(object sender, EventArgs e)
         {
             var dialog = new MinikubeGeneratorDialog(_dte);
             var hwnd = new IntPtr(_dte.MainWindow.HWnd);

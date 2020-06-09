@@ -2,8 +2,7 @@
 
 cd %solutionDir
 ECHO "Start Docker-env"
-minikube docker-env
-minikube -p minikube docker-env
+FOR /f "tokens=*" %%i IN ('minikube -p minikube docker-env') DO %%i
 ECHO "Finish Docker-env"
 ECHO "Start Docker Build"
 docker rmi %nameImageDocker --force
