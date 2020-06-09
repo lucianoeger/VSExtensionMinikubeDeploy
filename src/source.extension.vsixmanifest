@@ -4,14 +4,14 @@
         <Identity Id="99eae45b-eb5d-4f4f-a6a9-9516a0729b56" Version="1.0" Language="en-US" Publisher="Luciano Reichert Eger" />
         <DisplayName>Minikube Generator</DisplayName>
         <Description xml:space="preserve">The fastest and easiest way to deploy a docker image to the minikube.</Description>
-        <MoreInfo>https://marketplace.visualstudio.com/items?itemName=MadsKristensen.AddNewFile</MoreInfo>
         <License>Resources\LICENSE</License>
-        <ReleaseNotes>https://github.com/madskristensen/AddAnyFile/blob/master/CHANGELOG.md</ReleaseNotes>
+        <ReleaseNotes>https://github.com/lucianoeger/VSExtensionMinikubeGenerator/blob/master/CHANGELOG.md</ReleaseNotes>
         <Icon>Resources\logo.png</Icon>
         <PreviewImage>Resources\preview.png</PreviewImage>
         <Tags>minikube, deploy</Tags>
+        <Preview>true</Preview>
     </Metadata>
-    <Installation InstalledByMsi="false">
+    <Installation InstalledByMsi="false" AllUsers="true">
         <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[14.0,17.0)" />
     </Installation>
     <Prerequisites>
