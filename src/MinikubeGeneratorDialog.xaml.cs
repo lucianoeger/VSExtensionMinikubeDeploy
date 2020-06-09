@@ -32,10 +32,10 @@ namespace VSExtensions.MinikubeGenerator
             string nameDockerFile = txtNameDockerFile.Text;
             string nameImageDocker = txtNameImageDocker.Text;
             string namespaceKubernetes = txtNamespaceKubernetes.Text;
+            string solutionDir = Path.GetDirectoryName(_dte.Solution.FullName);
 
             new Thread(new ThreadStart(() =>
             {
-                string solutionDir = Path.GetDirectoryName(_dte.Solution.FullName);
                 string pathBase = Assembly.GetExecutingAssembly().Location.Replace("MinikubeGenerator.dll", "");
                 string deployMinikubeScript = Path.Combine(pathBase, "Resources\\DeployMinikube.bat");
                 string deploymentsScript = Path.Combine(pathBase, "Resources\\Deployments.yaml");
@@ -80,7 +80,6 @@ namespace VSExtensions.MinikubeGenerator
 
         private void WriteOutputWindow(string message)
         {
-            ThreadHelper.ThrowIfNotOnUIThread();
             IVsOutputWindow outWindow = Package.GetGlobalService(typeof(SVsOutputWindow)) as IVsOutputWindow;
 
             Guid debugPaneGuid = VSConstants.GUID_OutWindowDebugPane;
