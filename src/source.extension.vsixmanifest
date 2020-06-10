@@ -9,7 +9,6 @@
         <Icon>Resources\icon.png</Icon>
         <PreviewImage>Resources\preview.png</PreviewImage>
         <Tags>minikube, deploy</Tags>
-        <Preview>true</Preview>
     </Metadata>
     <Installation InstalledByMsi="false" AllUsers="true">
         <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[14.0,17.0)" />
