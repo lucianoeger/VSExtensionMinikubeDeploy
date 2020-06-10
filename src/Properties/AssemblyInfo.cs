@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
-using VSExtensions.MinikubeGenerator;
+using VSExtensions.MinikubeDeploy;
 
 [assembly: AssemblyTitle(Vsix.Name)]
 [assembly: AssemblyDescription(Vsix.Description)]

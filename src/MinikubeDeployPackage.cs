@@ -7,13 +7,13 @@ using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio.Shell;
 
-namespace VSExtensions.MinikubeGenerator
+namespace VSExtensions.MinikubeDeploy
 {
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
     [InstalledProductRegistration("#110", "#112", Vsix.Version, IconResourceID = 400)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    [Guid(PackageGuids.guidMinikubeGeneratorPkgString)]
-    public sealed class MinikubeGeneratorPackage : AsyncPackage
+    [Guid(PackageGuids.guidMinikubeDeployPkgString)]
+    public sealed class MinikubeDeployPackage : AsyncPackage
     {
         private DTE2 _dte;
 
@@ -25,7 +25,7 @@ namespace VSExtensions.MinikubeGenerator
 
             if (await GetServiceAsync(typeof(IMenuCommandService)) is OleMenuCommandService mcs)
             {
-                var menuCommandID = new CommandID(PackageGuids.guidMinikubeGeneratorCmdSet, PackageIds.cmdidMyCommand);
+                var menuCommandID = new CommandID(PackageGuids.guidMinikubeDeployCmdSet, PackageIds.cmdidMyCommand);
                 var menuItem = new OleMenuCommand(Execute, menuCommandID);
                 mcs.AddCommand(menuItem);
             }
@@ -33,7 +33,7 @@ namespace VSExtensions.MinikubeGenerator
 
         private void Execute(object sender, EventArgs e)
         {
-            var dialog = new MinikubeGeneratorDialog(_dte);
+            var dialog = new MinikubeDeployDialog(_dte);
             var hwnd = new IntPtr(_dte.MainWindow.HWnd);
             var window = (System.Windows.Window)HwndSource.FromHwnd(hwnd).RootVisual;
             dialog.Owner = window;
