@@ -7,11 +7,11 @@ namespace VSExtensions.MinikubeDeploy
 {
 				static class Vsix
 				{
-								public const string Id = "99eae45b-eb5d-4f4f-a6a9-9516a0729b56";
+								public const string Id = "1ea5fb62-ec48-4634-aeff-0b21038a758e";
 								public const string Name = "Minikube Deploy";
 								public const string Description = @"The fastest and easiest way to deploy a docker image to the minikube.";
 								public const string Language = "en-US";
-								public const string Version = "1.0";
+								public const string Version = "1.1";
 								public const string Author = "Luciano Reichert Eger";
 								public const string Tags = "minikube, deploy";
 				}

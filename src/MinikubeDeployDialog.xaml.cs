@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.Shell.Interop;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows;
@@ -107,12 +108,25 @@ namespace VSExtensions.MinikubeDeploy
 
             File.WriteAllText(temporaryFileMinukubeDeployBAT, File.ReadAllText(temporaryFileMinukubeDeployBAT)
                 .Replace("%solutionDir", configuration.SolutionDir)
-                .Replace("%dockerFile", $"\"{configuration.SolutionDir}\\{configuration.NameDockerFile}\"")
+                .Replace("%dockerFile", FindDockerFileRecursively(configuration.SolutionDir, configuration.NameDockerFile))
                 .Replace("%nameImageDocker", configuration.NameImageDocker)
                 .Replace("%namespaceKubernetes", configuration.NamespaceKubernetes)
                 .Replace("%deploymentsPath", $"\"{temporaryFileDeploymentsYAML}\""));
 
             return (temporaryFileDeploymentsYAML, temporaryFileMinukubeDeployBAT);
+        }
+
+        private string FindDockerFileRecursively(string solutionDir, string nameDockerFile)
+        {
+            try
+            {
+                return Directory.GetFiles(solutionDir, nameDockerFile, SearchOption.AllDirectories).First();
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return $"\"{solutionDir}\\{nameDockerFile}\"";
+            }
         }
 
         private void RemoveTemporaryFilesDeploy(string temporaryFileDeploymentsYAML, string temporaryFileMinukubeDeployBAT)
